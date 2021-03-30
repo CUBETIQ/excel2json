@@ -20,4 +20,4 @@ jobs:
 
       - name: Build and Push from Makefile
         run: |
-          make build
+          make build publish
