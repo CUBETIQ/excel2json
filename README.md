@@ -1,6 +1,7 @@
 # excel2json
 
 [![Node.js Package](https://github.com/CUBETIQ/excel2json/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/CUBETIQ/excel2json/actions/workflows/npm-publish.yml)
+[![Docker CI](https://github.com/CUBETIQ/excel2json/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/CUBETIQ/excel2json/actions/workflows/docker-publish.yml)
 
 - Read file excel to json
 - Custom mapping with custom columns and configs
