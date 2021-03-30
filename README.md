@@ -27,7 +27,7 @@ excel2json-xlsx -i source.xlsx -o exported.json
 ```
 OR
 ```shell
-npx excel2json -i source.xlsx -o exported.json
+npx excel2json-xlsx -i source.xlsx -o exported.json
 ```
 
 # [Docker Hub](https://hub.docker.com/r/cubetiq/excel2json)
