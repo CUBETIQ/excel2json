@@ -1,4 +1,4 @@
-DOCKER_IMAGE=cubetiq/node-excel2json
+DOCKER_IMAGE=cubetiq/excel2json
 
 build:
 	@echo "Building docker image..."
@@ -7,5 +7,9 @@ build:
 run:
 	@echo "Running container..."
 	docker run --rm -t ${DOCKER_IMAGE}
+
+publish:
+	@echo "Pubishing docker image..."
+	docker push ${DOCKER_IMAGE}
 
 .PHONY: build
