@@ -105,7 +105,7 @@ function _internalExport(props = {}) {
       console.log("Exported excel to json to output =>", outFile);
     } catch (err) {
       console.error(err);
-    }
+    } 
   }
 
   return data;
@@ -117,6 +117,6 @@ function _internalExport(props = {}) {
  *
  * @returns JSON Object of result
  */
-module.exports = excel2json = (props = {}) => {
+module.exports.excel2json = excel2json = (props = {}) => {
   return _internalExport(props);
 };

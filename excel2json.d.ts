@@ -1,4 +1,4 @@
-interface Excel2JsonProps {
+export interface Excel2JsonProps {
   mappings?: Array<any>;
   saveToOutput?: boolean;
   outputPath?: string;
@@ -10,4 +10,4 @@ interface Excel2JsonProps {
   encoding?: string;
 }
 
-declare function excel2json(props: Excel2JsonProps);
+export declare function excel2json(props: Excel2JsonProps);
