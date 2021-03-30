@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "dataIndex": "Name",
+      "label": "Name"
+    },
+    {
+      "dataIndex": "Age",
+      "label": "Age"
+    }
+  ],
+  "configs": {
+    "outputPath": "./data/outputs/exported",
+    "outputName": "my_exported_data",
+    "sheetName": "Sheet1",
+    "saveToOutput": true
+  }
+}
