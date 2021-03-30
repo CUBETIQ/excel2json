@@ -8,8 +8,7 @@ function _internalExport(props = {}) {
   console.log("Name =>", NAME, "\n");
 
   // load from env
-  const INPUT_FILE =
-    props.inputFile || process.env.INPUT_FILE || "./data/people.xlsx";
+  const INPUT_FILE = props.inputFile || process.env.INPUT_FILE;
   const OUTPUT_PATH =
     props.outputPath || process.env.OUTPUT_PATH || "./data/outputs";
   const MAPPER_FILE =
@@ -31,16 +30,21 @@ function _internalExport(props = {}) {
       }
     );
   } catch (err) {
-    console.error("read file error", err);
+    // console.error("read file error", err);
   }
 
   // convert mapper from string to json object
   const mapperJson = mapperString ? JSON.parse(mapperString) : {};
   const configs = { ...mapperJson.configs, ...props };
   const columsData = props.mappings || mapperJson.data || undefined;
+  const inFile = configs.inputFile || INPUT_FILE;
+
+  if (!inFile) {
+    throw Error("Input file is required!");
+  }
 
   // read workbook from excel file
-  const wb = XLSX.readFile(configs.inputFile || INPUT_FILE);
+  const wb = XLSX.readFile(inFile);
   const xlData = XLSX.utils.sheet_to_json(
     wb.Sheets[configs.sheetName || SHEET_NAME]
   );
