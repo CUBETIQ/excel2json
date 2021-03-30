@@ -29,12 +29,18 @@ const options = yargs
     type: "string",
     demandOption: false,
   })
-  .argv;
+  .option("p", {
+    alias: "print",
+    describe: "Print the exported json to console",
+    type: "boolean",
+    demandOption: false,
+  }).argv;
 
 const inputFile = options.input;
 const outputFile = options.output;
 const mapperFile = options.mapper;
 const sheetName = options.sheet;
+const print = options.print;
 
 const exported = excel2json({
   inputFile: inputFile,
@@ -42,3 +48,7 @@ const exported = excel2json({
   outputFile: outputFile,
   sheetName: sheetName,
 });
+
+if (print) {
+  console.log(exported);
+}
