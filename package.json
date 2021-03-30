@@ -2,6 +2,9 @@
   "name": "excel2json",
   "version": "1.0.0",
   "description": "Excel to json",
+  "repository": {
+    "url": "https://github.com/CUBETIQ/excel2json.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
