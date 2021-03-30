@@ -1,11 +1,13 @@
 # excel2json
-
 [![Node.js Package](https://github.com/CUBETIQ/excel2json/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/CUBETIQ/excel2json/actions/workflows/npm-publish.yml)
 [![Docker CI](https://github.com/CUBETIQ/excel2json/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/CUBETIQ/excel2json/actions/workflows/docker-publish.yml)
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cubetiq/excel2json)
+![Docker Pulls](https://img.shields.io/docker/pulls/cubetiq/excel2json)
 
 - Read file excel to json
 - Custom mapping with custom columns and configs
 - Custom props
+- Docker suppport
 
 # Install
 ```shell
@@ -21,7 +23,21 @@ yarn add global excel2json-xlsx
 ```
 Usage
 ```shell
-excel2json-xlsx -i people.xlsx -o exported.json
+excel2json-xlsx -i source.xlsx -o exported.json
+```
+OR
+```shell
+npx excel2json -i source.xlsx -o exported.json
+```
+
+# [Docker Hub](https://hub.docker.com/r/cubetiq/excel2json)
+***Pulling image***
+```shell
+docker pull cubetiq/excel2json
+```
+***Run container***
+```shell
+docker run --rm -it -v /my/path/data:/app/data cubetiq/excel2json -i ./data/source.xlsx -p true
 ```
 
 # Build

@@ -3,7 +3,7 @@ LABEL maintainer="sombochea@cubetiqs.com"
 
 VOLUME [ "/app/data" ]
 
-ENV INPUT_FILE './data/people.xlsx'
+ENV INPUT_FILE './data/source.xlsx'
 ENV OUTPUT_PATH './data/outputs'
 ENV MAPPER_FILE './data/mapper.json'
 
