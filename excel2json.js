@@ -1,10 +1,11 @@
 const XLSX = require("xlsx");
 const fs = require("fs");
+const { splitFilepath } = require("./util");
 
 // do export for excel to json output or data json object
 function _internalExport(props = {}) {
   const NAME = process.env.APP_NAME || "excel2json";
-  console.log("APP NAME =>", NAME, "\n");
+  console.log("Name =>", NAME, "\n");
 
   // load from env
   const INPUT_FILE =
@@ -36,7 +37,6 @@ function _internalExport(props = {}) {
   // convert mapper from string to json object
   const mapperJson = mapperString ? JSON.parse(mapperString) : {};
   const configs = { ...mapperJson.configs, ...props };
-  console.log(configs);
   const columsData = props.mappings || mapperJson.data || undefined;
 
   // read workbook from excel file
@@ -61,31 +61,47 @@ function _internalExport(props = {}) {
   });
 
   // able to save to output or not (default is true)
-  if (configs.saveToOutputput) {
-    // parse a new path
-    const outputPath = configs.outputPath || OUTPUT_PATH;
+  if (configs.saveToOutputput || configs.outputFile) {
+    var outputPath = undefined;
+    const filePath = splitFilepath(configs.outputFile);
 
-    // check directory and create it if not exist
-    if (!fs.existsSync(outputPath)) {
-      fs.mkdirSync(outputPath, { recursive: true });
+    // validate path and filename
+    if (filePath && filePath.path) {
+      outputPath = filePath.path;
+    }
+
+    if (filePath.path) {
+      // parse a new path
+      outputPath = outputPath || configs.outputPath || OUTPUT_PATH;
+
+      // check directory and create it if not exist
+      if (!fs.existsSync(outputPath)) {
+        fs.mkdirSync(outputPath, { recursive: true });
+      }
     }
 
     // json data output
     const jsonStringData = JSON.stringify(data);
 
     try {
-      // write to file
-      fs.writeFileSync(
-        `${outputPath}/${
+      var outFile = undefined;
+      if (configs.outputFile) {
+        outFile = configs.outputFile;
+      } else {
+        outFile = `${outputPath}/${
           configs.outputName || "exported"
-        }_${new Date().getTime()}.json`,
-        jsonStringData,
-        (err) => {
-          if (err) throw err;
-          console.log("Write succeed!");
-        }
-      );
-    } catch (err) {}
+        }_${new Date().getTime()}.json`;
+      }
+
+      // write to file
+      fs.writeFileSync(outFile, jsonStringData, (err) => {
+        if (err) throw err;
+      });
+
+      console.log("Exported excel to json to output =>", outFile);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return data;

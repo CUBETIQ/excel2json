@@ -5,6 +5,24 @@
 
 - Read file excel to json
 - Custom mapping with custom columns and configs
+- Custom props
+
+# Install
+```shell
+npm i excel2json-xlsx
+```
+OR
+```shell
+yarn i excel2json-xlsx
+```
+OR Global Install
+```shell
+yarn add global excel2json-xlsx
+```
+Usage
+```shell
+excel2json-xlsx -i people.xlsx -o exported.json
+```
 
 # Build
 
