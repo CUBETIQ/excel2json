@@ -1,4 +1,4 @@
-# excel2json
+# excel2json-xlsx
 [![Node.js Package](https://github.com/CUBETIQ/excel2json/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/CUBETIQ/excel2json/actions/workflows/npm-publish.yml)
 [![Docker CI](https://github.com/CUBETIQ/excel2json/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/CUBETIQ/excel2json/actions/workflows/docker-publish.yml)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cubetiq/excel2json)

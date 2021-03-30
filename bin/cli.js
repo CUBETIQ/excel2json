@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const yargs = require("yargs");
-const excel2json = require("./../excel2json");
+const excel2json = require("./../index");
 
 const options = yargs
   .usage("Usage: -i <input> -o <output> -m <mapper>")

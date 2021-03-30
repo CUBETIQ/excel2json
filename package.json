@@ -1,6 +1,6 @@
 {
   "name": "excel2json-xlsx",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "keywords": [
     "excel",
     "json",
@@ -11,7 +11,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "bin": "bin/cli.js",
+  "bin": "./bin/cli.js",
   "description": "Excel to JSON, able to export JSON from Excel (xlsx)",
   "repository": {
     "url": "https://github.com/CUBETIQ/excel2json.git"
