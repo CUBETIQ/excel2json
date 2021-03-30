@@ -15,4 +15,8 @@ RUN npm install
 
 RUN npm link
 
-CMD [ "excel2json-xlsx" , "--help"]
+RUN ln -s $(which excel2json-xlsx) /usr/bin/x2j
+
+ENTRYPOINT [ "/usr/bin/x2j"]
+
+CMD [ "--help" ]
