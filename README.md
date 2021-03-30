@@ -48,6 +48,19 @@ docker run -v /home/sombochea/excel2json:/app/data -e APP_NAME="EXCEL 2 JSON" -e
 }
 ```
 
+# Custom Function Props
+```javascript
+{
+    mappings: [
+        {
+            "dataIndex": "Name",
+            "label": "Name"
+        }
+    ],
+    saveToOutput: false
+}
+```
+
 # Environment
 
 ```env
