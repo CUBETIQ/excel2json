@@ -11,6 +11,8 @@ WORKDIR /app
 
 COPY . /app
 
-RUN yarn
+RUN npm install
 
-CMD [ "node" , "index.js"]
+RUN npm link
+
+CMD [ "excel2json-xlsx" , "--help"]
